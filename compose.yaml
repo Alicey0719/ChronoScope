@@ -1,0 +1,18 @@
+
+services:
+  chrono_scope:
+    build: .
+    container_name: chrono_scope
+    env_file:
+      - .env
+    environment:
+      # notify settings
+      - NOTIFY_METHOD=${NOTIFY_METHOD:-discord}
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
+      # external and local time server settings
+      - 'EXTERNAL_SOURCES=${EXTERNAL_SOURCES:-["ntp.nict.jp", "time.google.com", "pool.ntp.org"]}'
+      - LOCAL_SERVERS=${LOCAL_SERVERS}
+      # threshold and interval settings
+      - DRIFT_THRESHOLD=${DRIFT_THRESHOLD:-1.0}
+      - CHECK_INTERVAL=${CHECK_INTERVAL:-60}
+  
