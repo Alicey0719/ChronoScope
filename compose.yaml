@@ -3,6 +3,7 @@ services:
   chrono_scope:
     build: .
     container_name: chrono_scope
+    read_only: true
     env_file:
       - .env
     environment:
