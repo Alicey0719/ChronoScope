@@ -4,7 +4,7 @@ import json
 import time
 import requests
 import statistics
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from typing import List, Dict, Optional, Any, Union
 
 # --- 環境変数の読み込み ---
@@ -33,7 +33,7 @@ class Notifier:
     @staticmethod
     def discord(title: str, content: str, color: int) -> None:
         if not DISCORD_WEBHOOK_URL: return
-        payload = {"embeds": [{"title": title, "description": content, "color": color, "timestamp": datetime.utcnow().isoformat()}]}
+        payload = {"embeds": [{"title": title, "description": content, "color": color, "timestamp": datetime.now(timezone.utc).isoformat()}]}
         try: requests.post(DISCORD_WEBHOOK_URL, json=payload, timeout=5)
         except Exception as e: print(f"Notification error: {e}")
 
