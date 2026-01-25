@@ -13,6 +13,6 @@ services:
       - 'EXTERNAL_SOURCES=${EXTERNAL_SOURCES:-["ntp.nict.jp", "time.google.com", "pool.ntp.org"]}'
       - LOCAL_SERVERS=${LOCAL_SERVERS}
       # threshold and interval settings
-      - DRIFT_THRESHOLD=${DRIFT_THRESHOLD:-1.0}
+      - DRIFT_THRESHOLD=${DRIFT_THRESHOLD:-0.5}
       - CHECK_INTERVAL=${CHECK_INTERVAL:-60}
   

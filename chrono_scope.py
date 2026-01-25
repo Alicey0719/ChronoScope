@@ -10,7 +10,7 @@ from typing import List, Dict, Optional, Any, Union
 # --- 環境変数の読み込み ---
 EXTERNAL_SOURCES: List[str] = json.loads(os.getenv("EXTERNAL_SOURCES", '["ntp.nict.jp", "time.google.com", "pool.ntp.org"]'))
 LOCAL_SERVERS: List[Dict[str, Any]] = json.loads(os.getenv("LOCAL_SERVERS", '[]'))
-DRIFT_THRESHOLD: float = float(os.getenv("DRIFT_THRESHOLD", "1.0"))
+DRIFT_THRESHOLD: float = float(os.getenv("DRIFT_THRESHOLD", "0.5"))
 NOTIFY_METHOD: str = os.getenv("NOTIFY_METHOD", "discord").lower()
 DISCORD_WEBHOOK_URL: str = os.getenv("DISCORD_WEBHOOK_URL", "")
 CHECK_INTERVAL: int = int(os.getenv("CHECK_INTERVAL", "60"))
